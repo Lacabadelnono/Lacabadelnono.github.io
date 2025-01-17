@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotos - La Cabaña del Nono</title>
+    <style>
+        body {
+            font-family: Candara, sans-serif;
+		background-image: url("fotos/fondo.png");
+		background-size: cover;       
+		background-position: center;   
+		background-attachment: fixed;  
+		color: #212121;
+		padding: 1em 0;
+		text-align: center;
+		height: 100vh; 
+			
+			
+        }
+        header {
+
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #3498db;
+            padding: 0.5em;
+            text-align: center;
+        }
+        nav a {
+            color: #212121;
+            text-decoration: none;
+            margin: 0 1em;
+            padding: 0.5em 1em;
+            background-color: #ebf5fb;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #aed6f1;
+        }
+        main {
+            padding: 2em;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.5);;
+            padding: 1em;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 1em;
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #B2EBF2 ;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src = "fotos/fotoss.png" height = "90" alt = "" >
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="fotos.html">Fotos</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <main>
+        <div class="container">
+		<h2>Fotos</h2>
+		<button class="prev" onclick="prevSlide()">&#10094;</button>
+		<button class="next" onclick="nextSlide()">&#10095;</button>
+		<div class="slides">
+            <img src="fotos\1.png" alt="Foto 19">
+            <img src="fotos\2.png" alt="Foto 23">
+            <img src="fotos\3.png" alt="Foto 24">
+            <img src="fotos\4.png" alt="Foto 15">
+            <img src="fotos\5.png" alt="Foto 10">
+            <img src="fotos\6.png" alt="Foto 11">
+            <img src="fotos\7.png" alt="Foto 11">
+            <img src="fotos\8.png" alt="Foto 11">
+            <img src="fotos\9.png" alt="Foto 11">
+            <img src="fotos\10.png" alt="Foto 11">
+            <img src="fotos\11.png" alt="Foto 11">
+            <img src="fotos\12.png" alt="Foto 11">
+            <img src="fotos\13.png" alt="Foto 11">
+            <img src="fotos\14.png" alt="Foto 11">
+            <img src="fotos\15.png" alt="Foto 11">
+            <img src="fotos\16.png" alt="Foto 11">
+            <img src="fotos\17.png" alt="Foto 11">
+            <img src="fotos\18.png" alt="Foto 11">
+            <img src="fotos\19.png" alt="Foto 11">
+            <img src="fotos\20.png" alt="Foto 11">
+            <img src="fotos\21.png" alt="Foto 11">
+            <img src="fotos\22.png" alt="Foto 11">
+            <img src="fotos\23.png" alt="Foto 11">
+            <img src="fotos\24.png" alt="Foto 11">
+            <img src="fotos\25.png" alt="Foto 11">
+            <img src="fotos\26.png" alt="Foto 11">
+            <img src="fotos\27.png" alt="Foto 11">
+        </div>
+    </main>
+</body>
+</html>
+<style>
+    .container {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .prev,
+    .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .prev {
+        left: 0;
+    }
+
+    .next {
+        right: 0;
+    }
+</style>
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slides img');
+    const totalSlides = slides.length;
+
+    function showSlides() {
+        slides.forEach(slide => {
+            slide.style.display = 'none';
+        });
+        slides[slideIndex].style.display = 'block';
+    }
+
+    function prevSlide() {
+        slideIndex--;
+        if (slideIndex < 0) {
+            slideIndex = totalSlides - 1;
+        }
+        showSlides();
+    }
+
+    function nextSlide() {
+        slideIndex++;
+        if (slideIndex >= totalSlides) {
+            slideIndex = 0;
+        }
+        showSlides();
+    }
+
+    showSlides();
+</script>

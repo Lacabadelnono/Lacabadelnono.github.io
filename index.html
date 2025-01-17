@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Cabaña del Nono</title>
+    <style>
+        body {
+            font-family: Candara, sans-serif;
+            background-image: url("fotos/fondo.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #212121;
+            padding: 1em 0;
+            text-align: center;
+            height: 100vh;
+        }
+        header {
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #3498db;
+            padding: 0.5em;
+            text-align: center;
+        }
+        nav a {
+            color: #212121;
+            text-decoration: none;
+            margin: 0 1em;
+            padding: 0.5em 1em;
+            background-color: #ebf5fb;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #aed6f1;
+        }
+        main {
+            padding: 2em;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 1em;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 1em;
+        }
+        #map {
+            width: 100%;
+            height: 400px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="fotos/titu.png" height="90" alt="">
+    </header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="fotos.html">Fotos</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <main>
+        <div class="container">
+            <h2>Sobre la Cabaña</h2>
+            <p>
+               Ubicada en Potrero de Garay, Córdoba, Argentina, La Cabaña del Nono es tu refugio ideal para una escapada perfecta. 🌲🏡 Con una cocina amplia para deleitar tu paladar y una galería con vistas pintorescas al lago, cada momento se convierte en una experiencia inolvidable. 🌅 ¿Qué tal disfrutar de una noche acogedora junto a la calefacción, o relajarte bajo el sol en tu propia piscina privada? 🌞🏊‍♂️ Con una cochera disponible y conexión Wi-Fi para mantenerte conectado, ¡tus vacaciones serán simplemente perfectas! 🚗💻 Y para las noches de entretenimiento, nada mejor que una selección de películas en Netflix para cerrar el día con broche de oro. 🎥🍿 La Cabaña del Nono te espera para crear recuerdos inolvidables. ¡Bienvenidos a tu hogar lejos de casa! 🌟✨</p>
+            <img src="fotos/1.png" alt="Vista de la cabaña">
+        </div>
+        <div class="container">
+            <h2>Ubicación</h2>
+            <div id="map"></div>
+        </div>
+    </main>
+    <script>
+        // Coordenadas exactas de la ubicación
+        const cabañaDelNono = { lat: -31.7837466, lng: -64.5435383 };
+
+        // Inicializar el mapa
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: cabañaDelNono,
+            });
+
+            // Agregar marcador
+            new google.maps.Marker({
+                position: cabañaDelNono,
+                map: map,
+                title: "La Cabaña del Nono",
+            });
+        }
+    </script>
+    <!-- Carga la API de Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUKkIbxHLyQ9HXQ63Zt4dMaXZGsIOiM_A&callback=initMap" async defer></script>
+</body>
+</html>
